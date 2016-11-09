@@ -1,7 +1,8 @@
-package types
+package test
 
 import (
 	"encoding/xml"
+	"github.com/arzonus/ovalgo/models"
 	"io/ioutil"
 	"path/filepath"
 	"testing"
@@ -46,7 +47,7 @@ func TestParseDebianOVAL(t *testing.T) {
 		</definitions>
 	</oval_definitions>`
 
-	deb := new(DebianDefinitions)
+	deb := new(models.DebianOVALDefinitions)
 
 	err = xml.Unmarshal([]byte(debXML), deb)
 
@@ -62,7 +63,7 @@ func TestParseDebianOVAL(t *testing.T) {
 func TestLoadParseDebian(t *testing.T) {
 	var err error
 
-	path, _ := filepath.Abs("./../data/debian.xml")
+	path, _ := filepath.Abs("./data/debian.xml")
 
 	debXML, err := ioutil.ReadFile(path)
 	if err != nil {
@@ -71,7 +72,7 @@ func TestLoadParseDebian(t *testing.T) {
 		return
 	}
 
-	deb := new(DebianDefinitions)
+	deb := new(models.DebianOVALDefinitions)
 
 	err = xml.Unmarshal([]byte(debXML), deb)
 

@@ -1,7 +1,8 @@
-package types
+package test
 
 import (
 	"encoding/xml"
+	"github.com/arzonus/ovalgo/models"
 	"io/ioutil"
 	"path/filepath"
 	"testing"
@@ -83,7 +84,7 @@ func TestParseUbuntuOVAL(t *testing.T) {
 		</definitions>
 	</oval_definitions>`
 
-	ub := new(UbuntuDefinitions)
+	ub := new(models.UbuntuOVALDefinitions)
 
 	err = xml.Unmarshal([]byte(ubXML), ub)
 
@@ -99,7 +100,7 @@ func TestParseUbuntuOVAL(t *testing.T) {
 func TestLoadParseUbuntu(t *testing.T) {
 	var err error
 
-	path, _ := filepath.Abs("./../data/ubuntu.xenial.xml")
+	path, _ := filepath.Abs("./data/ubuntu.xenial.xml")
 
 	ubXML, err := ioutil.ReadFile(path)
 	if err != nil {
@@ -108,7 +109,7 @@ func TestLoadParseUbuntu(t *testing.T) {
 		return
 	}
 
-	ub := new(UbuntuDefinitions)
+	ub := new(models.UbuntuOVALDefinitions)
 
 	err = xml.Unmarshal([]byte(ubXML), ub)
 

@@ -1,6 +1,6 @@
-package types
+package models
 
-type DebianDefinitions struct {
+type DebianOVALDefinitions struct {
 	Generator   Generator        `xml:"generator"`
 	Definitions []Definition     `xml:"definitions>definition"`
 	Tests       []DpkgInfoTest   `xml:"tests>dpkginfo_test"`

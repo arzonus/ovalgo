@@ -1,10 +1,10 @@
-package types
+package models
 
 import (
 	"github.com/arzonus/ovalgo/utils/rfctime"
 )
 
-type UbuntuDefinitions struct {
+type UbuntuOVALDefinitions struct {
 	Generator   UbuntuGenerator  `xml:"generator"`
 	Definitions []Definition     `xml:"definitions>definition"`
 	Tests       []DpkgInfoTest   `xml:"tests>dpkginfo_test"`
