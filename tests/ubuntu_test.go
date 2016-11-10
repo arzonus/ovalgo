@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-func TestParseUbuntuOVAL(t *testing.T) {
+func TestParseUbuntu(t *testing.T) {
 	var err error
 
 	ubXML := `
@@ -93,8 +93,6 @@ func TestParseUbuntuOVAL(t *testing.T) {
 		t.Fail()
 		return
 	}
-
-	t.Log(ub)
 }
 
 func TestLoadParseUbuntu(t *testing.T) {
@@ -118,9 +116,4 @@ func TestLoadParseUbuntu(t *testing.T) {
 		t.Fail()
 		return
 	}
-
-	t.Log("Definitions: ", len(ub.Definitions))
-	t.Log("Tests: ", len(ub.Tests))
-	t.Log("Objects: ", len(ub.Objects))
-	t.Log("States: ", len(ub.States))
 }

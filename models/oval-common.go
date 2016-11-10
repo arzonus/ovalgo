@@ -1,6 +1,8 @@
 package models
 
-import "time"
+import (
+	"github.com/arzonus/ovalgo/utils/ovaltime"
+)
 
 type URI string
 
@@ -29,11 +31,11 @@ type NonEmptyString string
 
 // GeneratorType -> Generator
 type Generator struct {
-	ProductName    string    `xml:"product_name"`
-	ProductVersion string    `xml:"product_version"`
-	SchemaVersion  string    `xml:"schema_version"`
-	Timestamp      time.Time `xml:"timestamp"`
-	Any            string    `xml:"xsd:any"`
+	ProductName    string        `xml:"product_name"`
+	ProductVersion string        `xml:"product_version"`
+	SchemaVersion  string        `xml:"schema_version"`
+	Timestamp      ovaltime.Time `xml:"timestamp"`
+	Any            string        `xml:"xsd:any"`
 }
 
 // MessageType -> Message
