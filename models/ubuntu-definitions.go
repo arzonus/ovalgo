@@ -1,9 +1,12 @@
 package models
 
 type UbuntuOVALDefinitions struct {
-	Generator   Generator        `xml:"generator"`
-	Definitions []Definition     `xml:"definitions>definition"`
-	Tests       []DpkgInfoTest   `xml:"tests>dpkginfo_test"`
-	Objects     []DpkgInfoObject `xml:"objects>dpkginfo_object"`
-	States      []DpkgInfoState  `xml:"states>dpkginfo_state"`
+	OVALDefinitions
+	Definitions     []DebianDefinition `xml:"definitions>definition"`
+	DpkgInfoTests   []DpkgInfoTest     `xml:"tests>dpkginfo_test"`
+	FamilyTests     []FamilyTest       `xml:"tests>family_test"`
+	UnameTests      []UnameTest        `xml:"tests>uname_test"`
+	UnknownTests    []UnknownTest      `xml:"tests>unknown_test"`
+	DpkgInfoObjects []DpkgInfoObject   `xml:"objects>dpkginfo_object"`
+	DpkgInfoStates  []DpkgInfoState    `xml:"states>dpkginfo_state"`
 }

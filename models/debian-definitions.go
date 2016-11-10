@@ -5,11 +5,13 @@ import (
 )
 
 type DebianOVALDefinitions struct {
-	Generator   Generator          `xml:"generator"`
-	Definitions []DebianDefinition `xml:"definitions>definition"`
-	Tests       []DpkgInfoTest     `xml:"tests>dpkginfo_test"`
-	Objects     []DpkgInfoObject   `xml:"objects>dpkginfo_object"`
-	States      []DpkgInfoState    `xml:"states>dpkginfo_state"`
+	OVALDefinitions
+	Definitions          []DebianDefinition    `xml:"definitions>definition"`
+	DpkgInfoTests        []DpkgInfoTest        `xml:"tests>dpkginfo_test"`
+	TextFileContentTests []TextFileContentTest `xml:"tests>textfilecontent_test"`
+	UnameTests           []UnameTest           `xml:"tests>uname_test"`
+	DpkgInfoObjects      []DpkgInfoObject      `xml:"objects>dpkginfo_object"`
+	DpkgInfoStates       []DpkgInfoState       `xml:"states>dpkginfo_state"`
 }
 
 type DebianDefinition struct {
