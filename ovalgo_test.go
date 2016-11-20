@@ -277,3 +277,56 @@ func TestNewUbuntuDefinitionsCheckVulnerabilityMetadata(t *testing.T) {
 		return
 	}
 }
+
+// New tests
+func TestNewFullUbuntuXML(t *testing.T) {
+	path, _ := filepath.Abs("./data/ubuntu.xenial.xml")
+
+	debXML, err := ioutil.ReadFile(path)
+	if err != nil {
+		t.Error(err)
+		t.Fail()
+		return
+	}
+
+	def, err := New([]byte(debXML), "ubuntu")
+
+	if err != nil {
+		t.Error(err)
+		t.Fail()
+		return
+	}
+
+	switch tp := def.(type) {
+	case models.UbuntuOVALDefinitions:
+		t.Log("It's ubuntu definition: ", tp.Generator.ProductName)
+	case models.DebianOVALDefinitions:
+		t.Log("It's debian definition: ", tp.Generator.ProductName)
+	}
+}
+
+func TestNewFullDebianXML(t *testing.T) {
+	path, _ := filepath.Abs("./data/debian.xml")
+
+	debXML, err := ioutil.ReadFile(path)
+	if err != nil {
+		t.Error(err)
+		t.Fail()
+		return
+	}
+
+	def, err := New([]byte(debXML), "debian")
+
+	if err != nil {
+		t.Error(err)
+		t.Fail()
+		return
+	}
+
+	switch tp := def.(type) {
+	case models.UbuntuOVALDefinitions:
+		t.Log("It's ubuntu definition: ", tp.Generator.ProductName)
+	case models.DebianOVALDefinitions:
+		t.Log("It's debian definition: ", tp.Generator.ProductName)
+	}
+}
