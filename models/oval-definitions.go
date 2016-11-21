@@ -81,9 +81,9 @@ type ExtendDefinition struct {
 type Test struct {
 	ID             TestID               `xml:"id,attr"`
 	Version        uint32               `xml:"version,attr"`
-	CheckExistence ExistenceEnumeration `xml:"check_existence"`
-	Check          CheckEnumeration     `xml:"check"`
-	StateOperator  OperatorEnumeration  `xml:"state_operator"`
+	CheckExistence ExistenceEnumeration `xml:"check_existence,attr"`
+	Check          CheckEnumeration     `xml:"check,attr"`
+	StateOperator  OperatorEnumeration  `xml:"state_operator,attr"`
 	Comment        NonEmptyString       `xml:"comment,attr"`
 	Deprecated     bool                 `xml:"deprecated,attr"`
 	Notes          []Note               `xml:"notes>note"`

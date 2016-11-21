@@ -330,3 +330,5 @@ func TestNewFullDebianXML(t *testing.T) {
 		t.Log("It's debian definition: ", tp.Generator.ProductName)
 	}
 }
+
+// Check Tests
