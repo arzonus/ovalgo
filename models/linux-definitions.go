@@ -2,18 +2,23 @@ package models
 
 type DpkgInfoObject struct {
 	Object
-	Name   EntityObjectString `xml:"name"`
-	Filter []Filter           `xml:"filter"`
+	Name   string   `xml:"name"`
+	Filter []Filter `xml:"filter"`
 }
 
 type DpkgInfoState struct {
 	State
-	Name    EntityStateString    `xml:"name"`
-	Arch    EntityStateString    `xml:"arch"`
-	Epoch   EntityStateAnySimple `xml:"epoch"`
-	Release EntityStateAnySimple `xml:"release"`
-	Version EntityStateAnySimple `xml:"version"`
-	EVR     EntityStateEVRString `xml:"evr"`
+	Name    string `xml:"name"`
+	Arch    string `xml:"arch"`
+	Epoch   string `xml:"epoch"`
+	Release string `xml:"release"`
+	Version string `xml:"version"`
+	EVR     EVR    `xml:"evr"`
+}
+
+type EVR struct {
+	EVR       string `xml:",innerxml"`
+	Operation string `xml:"operation,attr"`
 }
 
 type DpkgInfoTest struct {
@@ -25,21 +30,21 @@ type DpkgInfoTest struct {
 type RpmInfoObject struct {
 	Object
 	Behaviors []RpmInfoBehaviors
-	Name      EntityObjectString `xml:"name"`
-	Filter    []Filter           `xml:"filter"`
+	Name      string   `xml:"name"`
+	Filter    []Filter `xml:"filter"`
 }
 
 type RpmInfoState struct {
 	State
-	Name           EntityStateString    `xml:"name"`
-	Arch           EntityStateString    `xml:"arch"`
-	Epoch          EntityStateAnySimple `xml:"epoch"`
-	Release        EntityStateAnySimple `xml:"release"`
-	Version        EntityStateAnySimple `xml:"version"`
-	EVR            EntityStateEVRString `xml:"evr"`
-	SignatureKeyID EntityStateString
-	ExtendedName   EntityStateString
-	Filepath       EntityStateString
+	Name           string `xml:"name"`
+	Arch           string `xml:"arch"`
+	Epoch          string `xml:"epoch"`
+	Release        string `xml:"release"`
+	Version        string `xml:"version"`
+	EVR            string `xml:"evr"`
+	SignatureKeyID string
+	ExtendedName   string
+	Filepath       string
 }
 
 type RpmInfoTest struct {
@@ -53,9 +58,9 @@ type RpmInfoBehaviors struct {
 }
 
 type ObjectRef struct {
-	ObjectRef ObjectID `xml:"object_ref,attr"`
+	ObjectRef string `xml:"object_ref,attr"`
 }
 
 type StateRef struct {
-	StateRef StateID `xml:"state_ref,attr"`
+	StateRef string `xml:"state_ref,attr"`
 }

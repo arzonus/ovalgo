@@ -2,18 +2,6 @@ package models
 
 // Short types Enumeration, Strings and etc
 
-type Enumeration string
-type FilterActionEnumeration string
-
-type EntityObjectString string
-type EntityStateAnySimple string
-type EntityStateEVRString string
-type EntityStateString string
-
-type SetOperatorEnumeration string
-type DatatypeFormatEnumeration string
-type ArithmeticEnumeration string
-
 type OVALDefinitions struct {
 	Generator   Generator    `xml:"generator"`
 	Definitions []Definition `xml:"definitions>definition"`
@@ -24,13 +12,13 @@ type OVALDefinitions struct {
 }
 
 type Definition struct {
-	ID         DefinitionID     `xml:"id,attr"`
-	Class      ClassEnumeration `xml:"class,attr"`
-	Version    uint32           `xml:"version,attr"`
-	Deprecated bool             `xml:"deprecated,attr"`
-	Metadata   Metadata         `xml:"metadata"`
-	Notes      []Note           `xml:"notes>note"`
-	Criteria   Criteria         `xml:"criteria"`
+	ID         string   `xml:"id,attr"`
+	Class      string   `xml:"class,attr"`
+	Version    uint     `xml:"version,attr"`
+	Deprecated bool     `xml:"deprecated,attr"`
+	Metadata   Metadata `xml:"metadata"`
+	Notes      []string `xml:"notes>note"`
+	Criteria   Criteria `xml:"criteria"`
 }
 
 type Metadata struct {
@@ -41,88 +29,88 @@ type Metadata struct {
 }
 
 type Affected struct {
-	Family    Enumeration `xml:"family,attr"`
-	Platforms []string    `xml:"platform"`
-	Products  []string    `xml:"product"`
+	Family    string   `xml:"family,attr"`
+	Platforms []string `xml:"platform"`
+	Products  []string `xml:"product"`
 }
 
 type Reference struct {
 	Source string `xml:"source,attr"`
 	RefID  string `xml:"ref_id,attr"`
-	RefURL URI    `xml:"ref_url,attr"`
+	RefURL string `xml:"ref_url,attr"`
 }
 
 type Note string
 
 type Criteria struct {
-	Operator           OperatorEnumeration `xml:"operator,attr"`
-	Negate             bool                `xml:"negate,attr"`
-	Comment            NonEmptyString      `xml:"comment,attr"`
-	Criterias          []Criteria          `xml:"criteria"`
-	Criterions         []Criterion         `xml:"criterion"`
-	ExtendDefinitions  []ExtendDefinition  `xml:"extend_definition"`
-	ApplicabilityCheck bool                `xml:"applicability_check,attr"`
+	Operator           string             `xml:"operator,attr"`
+	Negate             bool               `xml:"negate,attr"`
+	Comment            string             `xml:"comment,attr"`
+	Criterias          []Criteria         `xml:"criteria"`
+	Criterions         []Criterion        `xml:"criterion"`
+	ExtendDefinitions  []ExtendDefinition `xml:"extend_definition"`
+	ApplicabilityCheck bool               `xml:"applicability_check,attr"`
 }
 
 type Criterion struct {
-	TestRef            TestID         `xml:"test_ref,attr"`
-	Negate             bool           `xml:"negate,attr"`
-	Comment            NonEmptyString `xml:"comment,attr"`
-	ApplicabilityCheck bool           `xml:"applicability_check,attr"`
+	TestRef            string `xml:"test_ref,attr"`
+	Negate             bool   `xml:"negate,attr"`
+	Comment            string `xml:"comment,attr"`
+	ApplicabilityCheck bool   `xml:"applicability_check,attr"`
 }
 
 type ExtendDefinition struct {
-	DefinitionRef      DefinitionID   `xml:"definition_ref,attr"`
-	Negate             bool           `xml:"negate,attr"`
-	Comment            NonEmptyString `xml:"comment,attr"`
-	ApplicabilityCheck bool           `xml:"applicability_check,attr"`
+	DefinitionRef      string `xml:"definition_ref,attr"`
+	Negate             bool   `xml:"negate,attr"`
+	Comment            string `xml:"comment,attr"`
+	ApplicabilityCheck bool   `xml:"applicability_check,attr"`
 }
 
 type Test struct {
-	ID             TestID               `xml:"id,attr"`
-	Version        uint32               `xml:"version,attr"`
-	CheckExistence ExistenceEnumeration `xml:"check_existence,attr"`
-	Check          CheckEnumeration     `xml:"check,attr"`
-	StateOperator  OperatorEnumeration  `xml:"state_operator,attr"`
-	Comment        NonEmptyString       `xml:"comment,attr"`
-	Deprecated     bool                 `xml:"deprecated,attr"`
-	Notes          []Note               `xml:"notes>note"`
+	ID             string   `xml:"id,attr"`
+	Version        uint     `xml:"version,attr"`
+	CheckExistence string   `xml:"check_existence,attr"`
+	Check          string   `xml:"check,attr"`
+	StateOperator  string   `xml:"state_operator,attr"`
+	Comment        string   `xml:"comment,attr"`
+	Deprecated     bool     `xml:"deprecated,attr"`
+	Notes          []string `xml:"notes>note"`
 }
 
 type Object struct {
-	ID         ObjectID       `xml:"id,attr"`
-	Version    uint32         `xml:"version,attr"`
-	Comment    NonEmptyString `xml:"comment,attr"`
-	Deprecated bool           `xml:"deprecated,attr"`
-	Notes      []Note         `xml:"notes>note"`
+	ID         string   `xml:"id,attr"`
+	Version    uint     `xml:"version,attr"`
+	Comment    string   `xml:"comment,attr"`
+	Deprecated bool     `xml:"deprecated,attr"`
+	Notes      []string `xml:"notes>note"`
 }
 
 type State struct {
-	ID         StateID             `xml:"id,attr"`
-	Operator   OperatorEnumeration `xml:"operator,attr"`
-	Version    uint32              `xml:"version,attr"`
-	Comment    NonEmptyString      `xml:"comment,attr"`
-	Deprecated bool                `xml:"deprecated,attr"`
-	Notes      []Note              `xml:"notes>note"`
+	ID         string   `xml:"id,attr"`
+	Operator   string   `xml:"operator,attr"`
+	Version    uint     `xml:"version,attr"`
+	Comment    string   `xml:"comment,attr"`
+	Deprecated bool     `xml:"deprecated,attr"`
+	Notes      []string `xml:"notes>note"`
 }
 
 type Set struct {
-	SetOperator      SetOperatorEnumeration
+	SetOperator      string
 	Sets             []Set
-	ObjectReferences []ObjectID
+	ObjectReferences []string
 	Filters          []Filter
 }
 
 type Filter struct {
-	Action FilterActionEnumeration
-	Value  StateID
+	Action string
+	Value  string
 }
 
 type Variable struct {
-	ID         VariableID
+	ID         string
 	Version    uint32
-	Datatype   DatatypeEnumeration
-	Comment    NonEmptyString
+	Datatype   string
+	Comment    string
 	Deprecated bool
 }
 
@@ -138,12 +126,12 @@ type PossibleValue struct {
 
 type PossibleRestriction struct {
 	Restriction []Restriction
-	Operation   OperationEnumeration
+	Operation   string
 	Hint        string
 }
 
 type Restriction struct {
-	Operation OperationEnumeration
+	Operation string
 	Value     string
 }
 
@@ -167,18 +155,18 @@ type ComponentGroup struct {
 }
 
 type LiteralComponent struct {
-	Datatype SimpleDataEnumeration
+	Datatype string
 	Value    string
 }
 
 type ObjectComponent struct {
-	ItemField   NonEmptyString
-	RecordField NonEmptyString
-	ObjectRef   ObjectID
+	ItemField   string
+	RecordField string
+	ObjectRef   string
 }
 
 type VariableComponent struct {
-	VarRef VariableID
+	VarRef string
 }
 
 type FunctionComponent struct {
@@ -196,7 +184,7 @@ type FunctionComponent struct {
 }
 
 type ArithmeticFunction struct {
-	ArithmeticOperation ArithmeticEnumeration
+	ArithmeticOperation string
 	Values              []ComponentGroup
 }
 
@@ -227,8 +215,8 @@ type SubstringFunction struct {
 	Value           ComponentGroup
 }
 type TimeDifferenceFunction struct {
-	Format1 DatatypeFormatEnumeration
-	Format2 DatatypeFormatEnumeration
+	Format1 string
+	Format2 string
 	Values  []ComponentGroup
 }
 
@@ -241,9 +229,9 @@ type RegexCaptureFunction struct {
 }
 
 type EntityAttributeGroup struct {
-	Datatype  DatatypeEnumeration
-	Operation OperationEnumeration
+	Datatype  string
+	Operation string
 	Mask      bool
-	VarRef    VariableID
-	CheckRef  CheckEnumeration
+	VarRef    string
+	CheckRef  string
 }
