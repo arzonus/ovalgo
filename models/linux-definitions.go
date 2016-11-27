@@ -23,8 +23,8 @@ type EVR struct {
 
 type DpkgInfoTest struct {
 	Test
-	Object ObjectRef `xml:"object"`
-	State  StateRef  `xml:"state"`
+	Object ObjectRef  `xml:"object"`
+	States []StateRef `xml:"state"`
 }
 
 type RpmInfoObject struct {
