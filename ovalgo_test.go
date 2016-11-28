@@ -327,7 +327,7 @@ func TestNewFullDebianXML(t *testing.T) {
 	case models.UbuntuOVALDefinitions:
 		t.Log("It's ubuntu definition: ", tp.Generator.ProductName)
 	case models.DebianOVALDefinitions:
-		t.Log("It's debian definition: ", tp.Generator.ProductName)
+		t.Log("It's debian definition: ", tp.TextFileContentStates)
 	}
 }
 
