@@ -15,7 +15,7 @@ type UbuntuOVALDefinitions struct {
 
 	DpkgInfoStates []DpkgInfoState `xml:"states>dpkginfo_state"`
 	UnameStates    []UnameState    `xml:"states>uname_state"`
-	FamilyStates   []FamilyState   `xml:"tests>family_state"`
+	FamilyStates   []FamilyState   `xml:"states>family_state"`
 }
 
 type UbuntuDefinition struct {
