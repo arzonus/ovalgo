@@ -18,3 +18,8 @@ type Message struct {
 	Level   string
 	Message string
 }
+
+type ValueOperation struct {
+	Value     string `xml:",innerxml"`
+	Operation string `xml:"operation,attr"`
+}

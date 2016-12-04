@@ -12,10 +12,10 @@ type UnameObject struct {
 
 type UnameState struct {
 	State
-	MachineClass  string `xml:"machine_class"`
-	NodeName      string `xml:"node_name"`
-	OSName        string `xml:"os_name"`
-	OSRelease     string `xml:"os_release"`
-	OSVersion     string `xml:"os_version"`
-	ProcessorType string `xml:"processor_type"`
+	MachineClass  ValueOperation `xml:"machine_class"`
+	NodeName      ValueOperation `xml:"node_name"`
+	OSName        ValueOperation `xml:"os_name"`
+	OSRelease     ValueOperation `xml:"os_release"`
+	OSVersion     ValueOperation `xml:"os_version"`
+	ProcessorType ValueOperation `xml:"processor_type"`
 }

@@ -18,26 +18,20 @@ type UnknownTest struct {
 
 type TextFileContentState struct {
 	State
-	Filepath      string `xml:"filepath"`
-	Path          string `xml:"path"`
-	Filename      string `xml:"filename"`
-	Pattern       string `xml:"pattern"`
-	Instance      uint   `xml:"instance"`
-	Text          string `xml:"text"`
-	Subexpression string `xml:"subexpression"`
-	WindowsView   string `xml:"windows_view"`
-	Operation     string `xml:"operation,attr"`
-	Line          Line   `xml:"line"`
-}
-
-type Line struct {
-	Line      string `xml:",innerxml"`
-	Operation string `xml:"operation,attr"`
+	Filepath      ValueOperation `xml:"filepath"`
+	Path          ValueOperation `xml:"path"`
+	Filename      ValueOperation `xml:"filename"`
+	Pattern       ValueOperation `xml:"pattern"`
+	Instance      ValueOperation `xml:"instance"`
+	Text          ValueOperation `xml:"text"`
+	Subexpression ValueOperation `xml:"subexpression"`
+	WindowsView   ValueOperation `xml:"windows_view"`
+	Line          ValueOperation `xml:"line"`
 }
 
 type FamilyState struct {
 	State
-	Family string `xml:"family"`
+	Family ValueOperation `xml:"family"`
 }
 
 type TextFileContentObject struct {

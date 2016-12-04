@@ -8,17 +8,12 @@ type DpkgInfoObject struct {
 
 type DpkgInfoState struct {
 	State
-	Name    string `xml:"name"`
-	Arch    string `xml:"arch"`
-	Epoch   string `xml:"epoch"`
-	Release string `xml:"release"`
-	Version string `xml:"version"`
-	EVR     EVR    `xml:"evr"`
-}
-
-type EVR struct {
-	EVR       string `xml:",innerxml"`
-	Operation string `xml:"operation,attr"`
+	Name    ValueOperation `xml:"name"`
+	Arch    ValueOperation `xml:"arch"`
+	Epoch   ValueOperation `xml:"epoch"`
+	Release ValueOperation `xml:"release"`
+	Version ValueOperation `xml:"version"`
+	EVR     ValueOperation `xml:"evr"`
 }
 
 type DpkgInfoTest struct {
@@ -36,15 +31,15 @@ type RpmInfoObject struct {
 
 type RpmInfoState struct {
 	State
-	Name           string `xml:"name"`
-	Arch           string `xml:"arch"`
-	Epoch          string `xml:"epoch"`
-	Release        string `xml:"release"`
-	Version        string `xml:"version"`
-	EVR            string `xml:"evr"`
-	SignatureKeyID string
-	ExtendedName   string
-	Filepath       string
+	Name           ValueOperation `xml:"name"`
+	Arch           ValueOperation `xml:"arch"`
+	Epoch          ValueOperation `xml:"epoch"`
+	Release        ValueOperation `xml:"release"`
+	Version        ValueOperation `xml:"version"`
+	EVR            ValueOperation `xml:"evr"`
+	SignatureKeyID ValueOperation
+	ExtendedName   ValueOperation
+	Filepath       ValueOperation
 }
 
 type RpmInfoTest struct {
